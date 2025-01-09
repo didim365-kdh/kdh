@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
             <title>Image Display</title>
         </head>
         <body>
-            <h1>Here is your image:</h1>
+            <h1>CodePipeline Deploy:</h1>
             <img src="${imageUrl}" alt="Sample Image" style="max-width:100%; height:auto;">
         </body>
         </html>
