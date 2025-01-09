@@ -1,47 +1,25 @@
-const express = require('express'); 
+const express = require('express');
+const app = express();
+const port = 8080;
 
-const app = express(); 
+app.get('/', (req, res) => {
+    const imageUrl = 'https://www.chorock.co.kr/assets/images/ogimage.png';
+    res.send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Image Display</title>
+        </head>
+        <body>
+            <h1>Here is your image:</h1>
+            <img src="${imageUrl}" alt="Sample Image" style="max-width:100%; height:auto;">
+        </body>
+        </html>
+    `);
+});
 
-const port = 8080; 
-
-  
-
-app.get('/image', (req, res) => { 
-
-    const imageUrl = req.query.url || ' https://www.chorock.co.kr/assets/images/ogimage.png; // 기본값 설정 
-
-    res.send(` 
-
-        <!DOCTYPE html> 
-
-        <html lang="en"> 
-
-        <head> 
-
-            <meta charset="UTF-8"> 
-
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
-            <title>Dynamic Image</title> 
-
-        </head> 
-
-        <body> 
-
-            <h1>Dynamic Image:</h1> 
-
-            <img src="${imageUrl}" alt="Dynamic Image" style="max-width:100%; height:auto;"> 
-
-        </body> 
-
-        </html> 
-
-    `); 
-
-}); 
-
-  
-
-app.listen(port, () => { 
-
-    console.log(`App running on http://localhost:${port}`); 
+app.listen(port, () => {
+    console.log(`App running on http://localhost:${port}`);
+});
